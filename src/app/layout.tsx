@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import AnimatedBackground from "./_components/backgrounds/AnimatedBackground";
 
 export const metadata: Metadata = {
   title: "Kent Leow - Software Engineer III",
@@ -21,8 +22,18 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
-      <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+      <body className="relative min-h-screen overflow-x-hidden bg-bg-primary text-text-primary">
+        {/* Global Animated Background */}
+        <AnimatedBackground 
+          intensity="moderate"
+          pattern="mixed"
+          className="fixed inset-0 z-0"
+        />
+        
+        {/* Content Layer */}
+        <div className="relative z-10">
+          <TRPCReactProvider>{children}</TRPCReactProvider>
+        </div>
       </body>
     </html>
   );

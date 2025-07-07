@@ -46,7 +46,7 @@ export default function ScrollTrigger({
 
           switch (trigger) {
             case 'onEnter':
-              if (isIntersecting && !hasTriggered) {
+              if (isIntersecting && intersectionRatio >= threshold && !hasTriggered) {
                 setIsVisible(true);
                 setHasTriggered(true);
                 onTrigger?.(newProgress);
@@ -61,21 +61,23 @@ export default function ScrollTrigger({
               break;
               
             case 'whileInView':
-              setIsVisible(isIntersecting);
-              if (isIntersecting) {
+              if (isIntersecting && intersectionRatio >= threshold) {
+                setIsVisible(true);
                 onTrigger?.(newProgress);
+              } else {
+                setIsVisible(false);
               }
               break;
               
             case 'onProgress':
-              setIsVisible(isIntersecting);
+              setIsVisible(isIntersecting && intersectionRatio >= threshold);
               onTrigger?.(newProgress);
               break;
           }
         });
       },
       {
-        threshold: Array.from({ length: 101 }, (_, i) => i / 100),
+        threshold: Array.from({ length: 21 }, (_, i) => i / 20), // More granular thresholds
         rootMargin
       }
     );
@@ -97,9 +99,10 @@ export default function ScrollTrigger({
         case 'slide':
           return `${baseClasses} ${durationClass} ${delayClass} transform translate-y-8 opacity-0`;
         case 'scale':
-          return `${baseClasses} ${durationClass} ${delayClass} transform scale-90 opacity-0`;
+          return `${baseClasses} ${durationClass} ${delayClass} transform scale-95 opacity-0`;
         case 'rotate':
-          return `${baseClasses} ${durationClass} ${delayClass} transform rotate-3 opacity-0`;
+          return `${baseClasses} ${durationClass} ${delayClass} transform rotate-1 opacity-0`;
+        case 'fade':
         default:
           return `${baseClasses} ${durationClass} ${delayClass} opacity-0`;
       }
@@ -111,8 +114,8 @@ export default function ScrollTrigger({
   const getProgressTransform = () => {
     if (trigger === 'onProgress' && animation === 'custom') {
       return {
-        transform: `translateY(${(1 - progress) * 50}px)`,
-        opacity: progress
+        transform: `translateY(${(1 - progress) * 30}px)`,
+        opacity: Math.max(0.1, progress)
       };
     }
     return {};
@@ -122,7 +125,10 @@ export default function ScrollTrigger({
     <div
       ref={elementRef}
       className={`${getAnimationClasses()} ${className}`}
-      style={getProgressTransform()}
+      style={{
+        ...getProgressTransform(),
+        willChange: 'transform, opacity'
+      }}
       data-testid="scroll-trigger"
       data-visible={isVisible}
       data-progress={progress}

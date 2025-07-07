@@ -3,6 +3,9 @@ applyTo: '**'
 ---
 # Project Architecture Instructions
 
+## Package Management
+- Use `yarn` as the package manager.
+
 ## Structure
 - Organize code by feature/domain, following T3 conventions.
 - All source code must reside in `/src`.

@@ -15,15 +15,15 @@ export default function ContentToggle({
   const renderTabs = () => (
     <div className="w-full">
       {/* Tab Navigation */}
-      <div className="flex flex-wrap border-b border-[#3498db]/20 mb-6">
+      <div className="flex flex-wrap border-b border-[#374151]/30 mb-6">
         {sections.map((section) => (
           <button
             key={section.id}
             onClick={() => setActiveSection(section.id)}
             className={`flex items-center gap-2 px-6 py-3 font-medium transition-all duration-300 border-b-2 ${
               activeSection === section.id
-                ? 'border-[#e94560] text-[#e94560] bg-[#e94560]/10'
-                : 'border-transparent text-[#a8a8a8] hover:text-[#f8f9fa] hover:bg-[#1a1a2e]/50'
+                ? 'border-[#7c3aed] text-[#7c3aed] bg-[#7c3aed]/10'
+                : 'border-transparent text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#252545]/50'
             }`}
           >
             {section.icon && (
@@ -60,23 +60,23 @@ export default function ContentToggle({
         return (
           <div
             key={section.id}
-            className="border border-[#3498db]/20 rounded-lg overflow-hidden bg-[#16213e]/50"
+            className="border border-[#374151]/30 rounded-lg overflow-hidden bg-[#252545]/50"
           >
             {/* Accordion Header */}
             <button
               onClick={() => setActiveSection(isActive ? '' : section.id)}
-              className="w-full flex items-center justify-between p-4 text-left hover:bg-[#1a1a2e]/50 transition-colors duration-300"
+              className="w-full flex items-center justify-between p-4 text-left hover:bg-[#252545]/50 transition-colors duration-300"
             >
               <div className="flex items-center gap-3">
                 {section.icon && (
                   <span className={`w-5 h-5 transition-colors duration-300 ${
-                    isActive ? 'text-[#e94560]' : 'text-[#3498db]'
+                    isActive ? 'text-[#7c3aed]' : 'text-[#06b6d4]'
                   }`}>
                     {section.icon}
                   </span>
                 )}
                 <span className={`font-medium transition-colors duration-300 ${
-                  isActive ? 'text-[#e94560]' : 'text-[#f8f9fa]'
+                  isActive ? 'text-[#7c3aed]' : 'text-[#f8fafc]'
                 }`}>
                   {section.title}
                 </span>
@@ -85,7 +85,7 @@ export default function ContentToggle({
               <div className={`transform transition-transform duration-300 ${
                 isActive ? 'rotate-180' : ''
               }`}>
-                <svg className="w-5 h-5 text-[#a8a8a8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#94a3b8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
@@ -95,7 +95,7 @@ export default function ContentToggle({
             <div className={`overflow-hidden transition-all duration-500 ${
               isActive ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
             }`}>
-              <div className="p-4 border-t border-[#3498db]/20">
+              <div className="p-4 border-t border-[#374151]/30">
                 {section.content}
               </div>
             </div>
@@ -116,8 +116,8 @@ export default function ContentToggle({
               onClick={() => setActiveSection(section.id)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-300 ${
                 activeSection === section.id
-                  ? 'bg-[#e94560] text-white'
-                  : 'text-[#a8a8a8] hover:text-[#f8f9fa] hover:bg-[#1a1a2e]/50'
+                  ? 'bg-[#7c3aed] text-white'
+                  : 'text-[#94a3b8] hover:text-[#f8fafc] hover:bg-[#252545]/50'
               }`}
             >
               {section.icon && (
