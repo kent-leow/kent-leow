@@ -1,53 +1,131 @@
-import Link from "next/link";
+import ProfileHeader from "./_components/portfolio/ProfileHeader";
+import SkillsSection from "./_components/portfolio/SkillsSection";
+import ExperienceSection from "./_components/portfolio/ExperienceSection";
+import ProjectsSection from "./_components/portfolio/ProjectsSection";
+import ContactSection from "./_components/portfolio/ContactSection";
+import ResponsiveContainer from "./_components/layout/ResponsiveContainer";
+import DynamicNavigation from "./_components/navigation/DynamicNavigation";
+import { portfolioData } from "../data/portfolio-data";
 
-import { LatestPost } from "~/app/_components/post";
-import { api, HydrateClient } from "~/trpc/server";
-
-export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
-  void api.post.getLatest.prefetch();
+export default function Home() {
+  const navigationConfig = {
+    sections: [
+      { 
+        id: 'profile', 
+        title: 'Profile', 
+        description: 'Professional overview',
+        icon: (
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        ),
+        color: '#e94560'
+      },
+      { 
+        id: 'skills', 
+        title: 'Skills', 
+        description: 'Technical expertise',
+        icon: (
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+        ),
+        color: '#3498db'
+      },
+      { 
+        id: 'experience', 
+        title: 'Experience', 
+        description: 'Professional journey',
+        icon: (
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        ),
+        color: '#2ecc71'
+      },
+      { 
+        id: 'projects', 
+        title: 'Projects', 
+        description: 'Portfolio showcase',
+        icon: (
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        ),
+        color: '#9b59b6'
+      },
+      { 
+        id: 'contact', 
+        title: 'Contact', 
+        description: 'Get in touch',
+        icon: (
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        ),
+        color: '#f39c12'
+      }
+    ],
+    smooth: true,
+    offset: 0,
+    highlightActive: true,
+    showProgress: true
+  };
 
   return (
-    <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">First Steps →</h3>
-              <div className="text-lg">
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
-              </div>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/introduction"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Documentation →</h3>
-              <div className="text-lg">
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
-              </div>
-            </Link>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello ? hello.greeting : "Loading tRPC query..."}
-            </p>
-          </div>
+    <>
+      <ResponsiveContainer
+        config={{
+          mobile: {
+            layout: 'stack',
+            spacing: 'gap-0',
+            fontSize: 'text-sm',
+            padding: 'p-0',
+            height: 'min-h-screen'
+          },
+          tablet: {
+            layout: 'stack',
+            spacing: 'gap-0',
+            fontSize: 'text-base',
+            padding: 'p-0',
+            height: 'min-h-screen'
+          },
+          desktop: {
+            layout: 'stack',
+            spacing: 'gap-0',
+            fontSize: 'text-lg',
+            padding: 'p-0',
+            height: 'min-h-screen'
+          }
+        }}
+        className="min-h-screen bg-[#1a1a2e]"
+      >
+        <section id="profile">
+          <ProfileHeader />
+        </section>
+        
+        <section id="skills">
+          <SkillsSection skills={portfolioData.skills} />
+        </section>
+        
+        <section id="experience">
+          <ExperienceSection experiences={portfolioData.experience} />
+        </section>
+        
+        <section id="projects">
+          <ProjectsSection projects={portfolioData.projects} />
+        </section>
+        
+        <section id="contact">
+          <ContactSection 
+            contact={portfolioData.contact}
+            socialLinks={portfolioData.socialLinks}
+          />
+        </section>
+      </ResponsiveContainer>
 
-          <LatestPost />
-        </div>
-      </main>
-    </HydrateClient>
+      {/* Dynamic Navigation */}
+      <DynamicNavigation config={navigationConfig} />
+    </>
   );
 }
