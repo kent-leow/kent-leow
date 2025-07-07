@@ -2,6 +2,7 @@
 
 import { portfolioData } from "../../../data/portfolio-data";
 import InteractiveCard from "../ui/InteractiveCard";
+import TypingEffect from "../ui/TypingEffect";
 import GestureHandler from "../interactions/GestureHandler";
 import TouchOptimizedButton from "../ui/TouchOptimizedButton";
 
@@ -40,9 +41,17 @@ export default function ProfileHeader() {
               variant="elevated" 
               className="mx-auto max-w-4xl bg-gradient-to-r from-bg-elevated/80 via-bg-surface/90 to-bg-elevated/80 border border-border-primary/40 backdrop-blur-md shadow-2xl shadow-primary-900/20"
             >
-              <p className="text-base md:text-lg lg:text-xl text-text-primary leading-relaxed px-2 md:px-4">
-                {portfolioData.personal.summary}
-              </p>
+              <div className="text-base md:text-lg lg:text-xl text-text-primary leading-relaxed px-2 md:px-4">
+                <TypingEffect
+                  text={portfolioData.personal.summary}
+                  speed={30}
+                  delay={1200}
+                  cursor={true}
+                  cursorChar="▋"
+                  className="text-inherit leading-inherit"
+                  preserveWhitespace={true}
+                />
+              </div>
             </InteractiveCard>
           </div>
         </div>

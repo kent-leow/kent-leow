@@ -183,9 +183,33 @@ section {
   }
 }
 
+/* Typing effect cursor animation */
+@keyframes typingCursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes typingCursorPulse {
+  0%, 100% { 
+    transform: scaleY(1);
+    filter: drop-shadow(0 0 4px rgba(167, 139, 250, 0.4));
+  }
+  50% { 
+    transform: scaleY(1.1);
+    filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.7));
+  }
+}
+
 .name-text-animate {
   animation: nameTextFloat 3s ease-in-out infinite, nameTextPulse 4s ease-in-out infinite;
   animation-delay: 1s, 1.5s;
+}
+
+/* Enhanced typing cursor styles */
+.typing-cursor {
+  animation: typingCursorBlink 1.2s infinite, typingCursorPulse 2s ease-in-out infinite;
+  color: #a78bfa;
+  text-shadow: 0 0 6px rgba(167, 139, 250, 0.6);
 }
 
 h1.animate-fade-in-up {
