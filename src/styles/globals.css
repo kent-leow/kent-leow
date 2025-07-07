@@ -101,9 +101,29 @@ section {
 section {
   position: relative;
   z-index: 1;
+  min-height: 100vh;
 }
 
-/* Scroll to explore animation */
+/* Specific z-index for ProfileHeader to prevent overlap */
+#profile {
+  z-index: 2;
+  isolation: isolate;
+}
+
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  #profile h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.1;
+  }
+  
+  #profile h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+}
+
+/* Scroll to explore animation - simplified */
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -116,8 +136,65 @@ section {
   }
 }
 
-.scroll-indicator {
-  animation: bounce 2s infinite;
+/* Enhanced animations for name and title */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Section title gradient utility class */
+.section-title-gradient {
+  background: linear-gradient(to right, #7c3aed 0%, #a78bfa 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Name text animations */
+@keyframes nameTextFloat {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+@keyframes nameTextPulse {
+  0%, 100% { 
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.3));
+  }
+  50% { 
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 30px rgba(34, 211, 238, 0.5));
+  }
+}
+
+.name-text-animate {
+  animation: nameTextFloat 3s ease-in-out infinite, nameTextPulse 4s ease-in-out infinite;
+  animation-delay: 1s, 1.5s;
+}
+
+h1.animate-fade-in-up {
+  background-size: 200% 200%;
+  animation: fadeInUp 0.8s ease-out forwards, contextualGradientShift 4s ease-in-out infinite 1.5s;
+}
+
+h2.animate-fade-in-up {
+  opacity: 0;
 }
 
 /* Performance optimizations */

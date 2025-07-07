@@ -25,7 +25,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
           {/* Section Title */}
           <ParallaxContainer speed={0.3}>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#7c3aed] via-[#a78bfa] to-[#06b6d4] bg-clip-text text-transparent mb-4">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold section-title-gradient mb-4">
                 Featured Projects
               </h2>
               <p className="text-lg text-[#cbd5e1] max-w-2xl mx-auto leading-relaxed">

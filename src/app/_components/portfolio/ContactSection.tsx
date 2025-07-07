@@ -27,7 +27,7 @@ export default function ContactSection({ contact, socialLinks }: ContactSectionP
           {/* Section Title */}
           <ParallaxContainer speed={0.3}>
             <div className="mb-12">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#7c3aed] via-[#a78bfa] to-[#06b6d4] bg-clip-text text-transparent mb-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold section-title-gradient mb-6">
                 Let's Connect
               </h2>
               <p className="text-lg text-[#cbd5e1] max-w-2xl mx-auto leading-relaxed">

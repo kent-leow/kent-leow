@@ -22,21 +22,11 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
         {/* Tech Grid Background */}
         <TechGrid pattern="lines" intensity="subtle" animated={true} />
         
-        {/* Scroll to Explore Indicator */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-center">
-          <div className="scroll-indicator text-[#a78bfa] opacity-60">
-            <svg className="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-            <span className="text-xs font-medium">Scroll to explore</span>
-          </div>
-        </div>
-        
         <div className="relative z-10 max-w-6xl mx-auto pt-16">
           {/* Section Title */}
           <ParallaxContainer speed={0.3}>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#7c3aed] via-[#a78bfa] to-[#06b6d4] bg-clip-text text-transparent mb-4">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold section-title-gradient mb-4">
                 Technical Expertise
               </h2>
               <p className="text-lg text-[#cbd5e1] max-w-2xl mx-auto leading-relaxed">

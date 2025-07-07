@@ -22,29 +22,29 @@ export default function DynamicNavigation({ config, className = '' }: DynamicNav
       {/* Progress Bar */}
       {showProgress && (
         <div className="mb-6 w-1.5 h-32 bg-bg-elevated/50 rounded-full overflow-hidden backdrop-blur-sm border border-border-muted/40 relative shadow-inner">
-          {/* Progress fill with purple gradient - fills from top */}
+          {/* Progress fill with purple gradient */}
           <div 
-            className="w-full bg-gradient-to-b from-primary-500 via-primary-600 to-primary-700 transition-all duration-500 ease-out rounded-full absolute top-0"
+            className="w-full bg-gradient-to-t from-primary-700 via-primary-600 to-primary-500 transition-all duration-500 ease-out rounded-full absolute bottom-0"
             style={{ 
               height: `${Math.max(1, Math.round(scrollProgress))}%`,
               background: scrollProgress > 0 ? 
-                'linear-gradient(to bottom, #a78bfa, #8b5cf6, #7c3aed, #6d28d9)' : 
+                'linear-gradient(to top, #6d28d9, #7c3aed, #8b5cf6, #a78bfa)' : 
                 'transparent',
               boxShadow: scrollProgress > 0 ? 
-                'inset 0 -1px 3px rgba(0,0,0,0.2), 0 0 15px rgba(124, 58, 237, 0.7), 0 0 25px rgba(124, 58, 237, 0.4)' : 
+                'inset 0 1px 3px rgba(0,0,0,0.2), 0 0 15px rgba(124, 58, 237, 0.7), 0 0 25px rgba(124, 58, 237, 0.4)' : 
                 'none',
               transform: 'translateZ(0)',
               filter: scrollProgress > 0 ? 'brightness(1.1) saturate(1.2)' : 'none'
             }}
           />
           
-          {/* Subtle glow effect at the bottom of progress */}
+          {/* Subtle glow effect at the top of progress */}
           {scrollProgress > 5 && (
             <div 
-              className="absolute w-2 h-1 -left-0.25 bg-primary-600/80 rounded-full blur-sm transition-all duration-300"
+              className="absolute w-2 h-1 -left-0.25 bg-primary-400/80 rounded-full blur-sm transition-all duration-300"
               style={{
-                top: `${Math.max(0, Math.round(scrollProgress) - 1)}%`,
-                boxShadow: '0 0 6px rgba(124, 58, 237, 0.9)'
+                bottom: `${Math.max(0, Math.round(scrollProgress) - 1)}%`,
+                boxShadow: '0 0 6px rgba(168, 139, 250, 0.9)'
               }}
             />
           )}
@@ -67,7 +67,7 @@ export default function DynamicNavigation({ config, className = '' }: DynamicNav
             <Tooltip
               key={section.id}
               config={{
-                content: `${section.title}${section.description ? ` - ${section.description}` : ''}`,
+                content: `${section.title}`,
                 position: 'left',
                 trigger: 'hover',
                 delay: 300
@@ -120,15 +120,14 @@ export default function DynamicNavigation({ config, className = '' }: DynamicNav
                 )}
 
                 {/* Active Section Label */}
-                {isActive && highlightActive && (
+                {/* {isActive && highlightActive && (
                   <div className="absolute -left-3 top-1/2 -translate-y-1/2 -translate-x-full mr-3 animate-fade-in">
                     <div className="px-3 py-1.5 bg-primary-600 text-white text-xs font-medium rounded-md whitespace-nowrap shadow-lg border border-primary-500/30 backdrop-blur-sm">
                       {section.title}
                     </div>
-                    {/* Arrow */}
                     <div className="absolute right-[-5px] top-1/2 -translate-y-1/2 w-0 h-0 border-l-[5px] border-l-primary-600 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent" />
                   </div>
-                )}
+                )} */}
               </button>
             </Tooltip>
           );

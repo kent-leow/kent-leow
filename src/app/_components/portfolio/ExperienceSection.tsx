@@ -43,7 +43,7 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
         >
           <div className="text-center mb-20">
             <ParallaxContainer speed={0.3}>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary-600 via-primary-400 to-secondary-500 bg-clip-text text-transparent mb-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold section-title-gradient mb-6">
                 Professional Journey
               </h2>
               <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
