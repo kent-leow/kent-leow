@@ -1,0 +1,148 @@
+ZHENG QIAN (Kent) LEOW
+Software Engineer III
+
+Permanent Resident
++65 8834 1602
+
+Full Stack Software Engineer with 6+ years of experience in cross-platform mobile and web development using Flutter, Angular, React.js, Next.js, and TypeScript. Skilled in backend systems with Spring Boot and Node.js, working extensively with SQL, NoSQL, and RESTful APIs. Experienced in deploying and scaling applications on Azure, AWS, and GCP, and proficient in integrating microservices and building secure CI/CD pipelines. Passionate about leveraging AI tools to accelerate development and delivering scalable, user-centric solutions focused on performance, maintainability, and team productivity.
+
+PERSONAL INFORMATION
+  Address: , Permanent Resident, 
+  Nationality: 
+  Driving License: 
+  Hobbies: 
+
+LANGUAGES
+
+SKILLS
+  Angular
+  ReactJS
+  NextJS
+  Flutter/Dart
+  Typescript
+  Material UI
+  Spring Boot (Java/Kotlin)
+  NestJS
+  MYSQL/MSSQL/POSTGRESQL
+  Firestore/MongoDB
+  Cloud (Azure/AWS/GCP)
+  Docker
+  UI/Unit Test
+  Git (GitHub/GitLab/AzureRepo)
+
+WORK EXPERIENCE
+  * July 2024 – Present
+    Fullstack Software Engineer at PALO IT (GoBiz @ GovTech), Singapore
+      
+  Leveraged AI tools to automate tasks and optimize workflows in a project built on AWS cloud, with Angular/ReactJS for the frontend and Spring Boot for the backend.
+  Maintained and modernized legacy codebase: upgraded Spring Boot 2 to 3, upgraded Angular 9 to 19.
+  Conducted in-depth technical evaluation of AWS Lambda for large-scale data export (~1M records), assessing architectural fit, cost implications, and system performance under production-like conditions.
+  Diagnosed and resolved complex issues across production and staging environments using ELK Stack and OpenSearch for log analysis and monitoring, collaborating closely with cross-functional stakeholders to ensure minimal disruption and timely remediation.
+  Managed secure onboarding of government agency users, supporting protected API integrations to ensure compliant, high-trust data exchange.
+  Drove quality improvements through systematic bug resolution and technical debt reduction, contributing to long-term codebase stability and maintainability.
+  Occasionally acted as scrum facilitator, helping the team maintain focus and cadence during sprint planning and stand-ups.
+
+
+  * May 2024 – July 2024
+    Frontend Software Engineer at PALO IT (IRAS @ EY), Singapore
+      
+  Redesigned the Angular application architecture leveraging Atomic Design principles to enforce component modularity and reusability, significantly streamlining development workflows and reducing implementation overhead across teams.
+
+  Led the development of multiple feature-rich modules with end-to-end backend integration under tight deadlines, including listing pages with filters and pagination, a dynamic Excel-like error display for file uploads, upload/download and export functionality, and report generation pages—ensuring high performance, reliability, and a seamless cross-platform user experience.
+
+  Architected and implemented an intermediary backend abstraction layer (backend for frontend) to decouple core services from direct external access, improving security, maintainability, and scalability of the system, using NodeJS.
+
+
+  * December 2023 – April 2024
+    Fullstack Software Engineer at PALO IT (CIX), Singapore
+      
+  Led development of key features for a mission-critical carbon market platform, including a revamped user/client module and onboarding flow integrated with Salesforce CRM and Cloudflare Turnstile—enhancing scalability and supporting sustainability goals.
+  Maintained platform stability and reliability by proactively identifying, troubleshooting, and resolving defects in ReactJS frontend and Spring Boot backend across production and pre-production environments.
+  Led core infrastructure refactoring to improve performance, reduce technical debt, and resolve complex UI patterns such as nested forms—enhancing system stability and maintainability.
+  Conducted multiple knowledge transfer (KT) sessions on frontend architecture and mentored fellow engineers to strengthen team capability and codebase understanding.
+
+
+  * March 2023 – November 2023
+    Frontend Software Engineer at PALO IT (Libeara), Singapore
+      
+  Architected and developed a cross-platform application from scratch using Flutter, delivering a consistent and high-performance experience across Android, iOS, and web platforms.
+  Designed and implemented a scalable, component-based design system aligned with Figma specifications, ensuring UI consistency, maintainability, and seamless designer-developer collaboration, inspired by Material Design.
+  Integrated frontend with distributed microservices using OpenAPI specifications, enabling robust communication and enhancing performance and user experience through scalable service orchestration.
+  Built a crypto-enabled web application from the ground up using Next.js, integrating Web3 wallet functionality and responsive UI/UX for secure blockchain interactions.
+  Contributed to several functions and endpoints in the NestJS backend.
+
+
+  * August 2022 – February 2023
+    Fullstack Software Engineer at PALO IT (CIX), Singapore
+      
+  Led a comprehensive refactoring initiative across the ReactJS codebase, improving maintainability, performance, and code quality while aligning with modern development standards - Atomic Design.
+  Redesigned and optimized the UI architecture, streamlining component structure and interaction flows to deliver a smoother and more intuitive user experience using MUI design system.
+  Owned end-to-end application maintenance, proactively resolving bugs and mitigating potential production risks to ensure platform stability and user trust.
+  Designed, implemented, and integrated new functional flows and pages using ReactJS and Spring Boot, expanding product capabilities and delivering a more feature-rich, user-centric web experience.
+
+
+  * May 2022 – July 2022
+    Fullstack Software Engineer at PALO IT (Community Hub), Singapore
+      
+  Developed a dynamic community hub platform to facilitate the sharing of climate impact–related events and articles, fostering public engagement and environmental awareness, using NextJS.
+  Implemented core user authentication flows including login, registration, password reset, and recovery, ensuring secure and user-friendly access control.
+  Integrated modular content components such as insights and event listings, enhancing the platform’s flexibility and scalability.
+  Leveraged Directus as a no-code backend CMS, enabling efficient content management and empowering non-technical stakeholders to manage and publish site content independently.
+  Integrated Salesforce CRM into website workflows, enabling seamless data flow between user interactions and organizational processes to enhance operational efficiency and stakeholder insights, via Zapier.
+  Provided post-deployment technical support and high-level knowledge transfer (KT) to ensure smooth project handover, enabling client teams to maintain and scale the solution independently with minimal friction.
+
+
+  * April 2021 – April 2022
+    Lead Engineer at Gigworks, Singapore
+      
+  Led development and ongoing maintenance of a Flutter mobile application team, delivering cross-platform functionality with high performance and scalability.
+  Conducted technical research on Google Cloud Dataflow and Apache Beam, evaluating their suitability for building scalable, real-time data processing pipelines to support AI-driven features.
+  Designed and implemented a modular Flutter package for action tracking and event logging, enabling analytics and behavioral insights within the Gigworks mobile platform.
+  Built and optimized data processing pipelines to support downstream AI/ML tasks, ensuring data quality, throughput, and reliability.
+  Collaborated with and managed freelance developers, effectively delegating tasks and ensuring alignment with technical standards and delivery timelines.
+  Revamped and architected a robust NodeJS backend system to support a unified platform across web, mobile, and desktop applications, ensuring consistency, scalability, and maintainability.
+  Provided technical leadership by mentoring mobile development interns, conducting in-depth code reviews, and ensuring adherence to best practices and delivery standards.
+
+
+  * February 2020 – March 2021
+    Mobile Software Engineer at Gigworks, Singapore
+      
+  Led code refactoring and maintenance initiatives to optimize the Flutter application performance, reduce defect rates, and improve codebase readability and long-term maintainability.
+  Oversaw cross-platform deployment processes for Android and iOS using Android Studio and Xcode, ensuring smooth release cycles and platform-specific optimizations.
+  Translated business requirements into robust features such as voucher systems, referral workflows, and image optimization, contributing to user engagement and operational efficiency.
+  Redesigned and enhanced critical user interfaces and flows, including the home page, &quot;My Likes&quot; module, search experience, and seller profile onboarding, resulting in improved usability and retention.
+  Harnessed Firebase services to expand mobile capabilities, including building serverless cloud functions, querying analytics data via BigQuery, and applying on-device image recognition using ML Kit.
+
+
+  * November 2018 – January 2020
+    Fullstack Software Engineer at Plexure, Singapore
+      
+  Designed and developed a full-featured CRM system for a leading global shipping and logistics company, supporting complex customer interactions and operational workflows, using Laravel(php).
+  Built a secure, customer-facing portal with integrated payment gateway, alongside an admin panel web application that enabled seamless API communication with SGNIC on behalf of a multinational telecom client, using Laravel(php).
+  Engineered a scalable ticketing system web application tailored to the operational needs of a major global monitor and television manufacturer, improving support efficiency and traceability, using Laravel(php).
+  Led research and development of an Angular-based proof of concept (POC) for a modular, customizable web application framework, adaptable to multiple enterprise use cases such as CRM, instant messaging, and ticketing systems.
+
+
+  * February 2018 – July 2018
+    IT R&amp;D Intern at Meteorsoft, Kuala Lumpur
+      
+  Contributed to the development of an e-commerce and tour booking website utilizing ASP.NET, C#, VB.NET, SQL Server, Bootstrap, jQuery, and other relevant technologies.
+  Assumed responsibility for maintaining code in a Windows application.
+  Developed and implemented multiple SQL functions specifically designed for cart checkout functionality.
+
+
+
+EDUCATION
+  * September 2014 – September 2018
+     Universiti Malaysia Pahang, Malaysia Bachelor of Computer Science (Computer Systems &amp; Networking) with Honours
+
+COURSES
+  * December 2024 – December 2027
+     ICT Assessment Certification for Software Developer, GovTech Singapore
+  * January 2025 – January 2028
+    GitHub Copilot, GitHub
+  * December 2024 – January 2026
+     Microsoft Certified: Azure Developer Associate, Microsoft
+  * April 2025 – April 2026
+     Microsoft Certified: Azure AI Engineer Associate, Microsoft
+
