@@ -5,7 +5,7 @@ import type { NavigationState } from "../types/navigation";
 
 export default function useSectionNavigation(sectionIds: string[]) {
   const [navigationState, setNavigationState] = useState<NavigationState>({
-    currentSection: sectionIds[0] || '',
+    currentSection: sectionIds[0] ?? '',
     previousSection: '',
     scrollProgress: 0,
     isTransitioning: false
@@ -17,7 +17,7 @@ export default function useSectionNavigation(sectionIds: string[]) {
     const windowHeight = window.innerHeight;
     const offset = 100; // Account for fixed navigation
     
-    let currentSection = sectionIds[0] || '';
+    let currentSection = sectionIds[0] ?? '';
     let maxScore = 0;
     let currentSectionElement: HTMLElement | null = null;
 
@@ -139,13 +139,13 @@ export default function useSectionNavigation(sectionIds: string[]) {
   const navigateNext = useCallback(() => {
     const currentIndex = sectionIds.indexOf(navigationState.currentSection);
     const nextIndex = (currentIndex + 1) % sectionIds.length;
-    navigateToSection(sectionIds[nextIndex] || '', true);
+    navigateToSection(sectionIds[nextIndex] ?? '', true);
   }, [navigationState.currentSection, sectionIds, navigateToSection]);
 
   const navigatePrevious = useCallback(() => {
     const currentIndex = sectionIds.indexOf(navigationState.currentSection);
     const prevIndex = currentIndex === 0 ? sectionIds.length - 1 : currentIndex - 1;
-    navigateToSection(sectionIds[prevIndex] || '', true);
+    navigateToSection(sectionIds[prevIndex] ?? '', true);
   }, [navigationState.currentSection, sectionIds, navigateToSection]);
 
   useEffect(() => {
@@ -193,11 +193,11 @@ export default function useSectionNavigation(sectionIds: string[]) {
           break;
         case 'Home':
           e.preventDefault();
-          navigateToSection(sectionIds[0] || '', true);
+          navigateToSection(sectionIds[0] ?? '', true);
           break;
         case 'End':
           e.preventDefault();
-          navigateToSection(sectionIds[sectionIds.length - 1] || '', true);
+          navigateToSection(sectionIds[sectionIds.length - 1] ?? '', true);
           break;
       }
     };

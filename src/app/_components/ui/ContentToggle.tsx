@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import type { ContentToggleProps, ContentSection } from "../../../types/ui";
+import type { ContentToggleProps } from "../../../types/ui";
 
 export default function ContentToggle({
   sections,
@@ -9,7 +9,7 @@ export default function ContentToggle({
   layout = 'tabs'
 }: ContentToggleProps) {
   const [activeSection, setActiveSection] = useState(
-    defaultSection || sections[0]?.id || ''
+    defaultSection ?? sections[0]?.id ?? ''
   );
 
   const renderTabs = () => (

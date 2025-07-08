@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import type { TooltipConfig } from "../../../types/ui";
 
@@ -17,33 +17,7 @@ export default function Tooltip({ children, config, className = '' }: TooltipPro
   const tooltipRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const showTooltip = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    
-    timeoutRef.current = setTimeout(() => {
-      setIsVisible(true);
-      updatePosition();
-    }, config.delay || 300);
-  };
-
-  const hideTooltip = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setIsVisible(false);
-  };
-
-  const toggleTooltip = () => {
-    if (isVisible) {
-      hideTooltip();
-    } else {
-      showTooltip();
-    }
-  };
-
-  const updatePosition = () => {
+  const updatePosition = useCallback(() => {
     if (!triggerRef.current) return;
 
     const triggerRect = triggerRef.current.getBoundingClientRect();
@@ -73,7 +47,33 @@ export default function Tooltip({ children, config, className = '' }: TooltipPro
     }
 
     setPosition({ x, y });
-  };
+  }, [config.position]);
+
+  const showTooltip = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    
+    timeoutRef.current = setTimeout(() => {
+      setIsVisible(true);
+      updatePosition();
+    }, config.delay ?? 300);
+  }, [config.delay, updatePosition]);
+
+  const hideTooltip = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsVisible(false);
+  }, []);
+
+  const toggleTooltip = useCallback(() => {
+    if (isVisible) {
+      hideTooltip();
+    } else {
+      showTooltip();
+    }
+  }, [isVisible, hideTooltip, showTooltip]);
 
   useEffect(() => {
     const triggerElement = triggerRef.current;
@@ -102,7 +102,7 @@ export default function Tooltip({ children, config, className = '' }: TooltipPro
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [config.trigger, config.delay]);
+  }, [config.trigger, showTooltip, hideTooltip, toggleTooltip]);
 
   useEffect(() => {
     if (isVisible) {
@@ -115,7 +115,7 @@ export default function Tooltip({ children, config, className = '' }: TooltipPro
         window.removeEventListener('resize', updatePosition);
       };
     }
-  }, [isVisible, config.position]);
+  }, [isVisible, updatePosition]);
 
   const getTransformOrigin = () => {
     switch (config.position) {

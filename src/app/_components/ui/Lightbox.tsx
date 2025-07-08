@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import type { LightboxConfig } from "../../../types/ui";
 
 interface LightboxProps {
@@ -11,7 +12,7 @@ interface LightboxProps {
 }
 
 export default function Lightbox({ config, isOpen, onClose }: LightboxProps) {
-  const [currentIndex, setCurrentIndex] = useState(config.currentIndex || 0);
+  const [currentIndex, setCurrentIndex] = useState(config.currentIndex ?? 0);
 
   const nextImage = () => {
     setCurrentIndex((prev) => (prev + 1) % config.images.length);
@@ -92,9 +93,11 @@ export default function Lightbox({ config, isOpen, onClose }: LightboxProps) {
 
       {/* Image Container */}
       <div className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center">
-        <img
-          src={config.images[currentIndex]}
-          alt={config.alt || `Image ${currentIndex + 1}`}
+        <Image
+          src={config.images[currentIndex] ?? ''}
+          alt={config.alt ?? `Image ${currentIndex + 1}`}
+          width={800}
+          height={600}
           className="max-w-full max-h-full object-contain shadow-2xl"
           style={{
             animation: 'lightboxImageFadeIn 0.3s ease-out'
@@ -129,9 +132,11 @@ export default function Lightbox({ config, isOpen, onClose }: LightboxProps) {
               }`}
               onClick={() => setCurrentIndex(index)}
             >
-              <img
+              <Image
                 src={image}
                 alt={`Thumbnail ${index + 1}`}
+                width={64}
+                height={64}
                 className="w-full h-full object-cover"
               />
             </button>

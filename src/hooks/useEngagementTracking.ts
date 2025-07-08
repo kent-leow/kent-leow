@@ -102,7 +102,7 @@ export default function useEngagementTracking() {
     }));
   };
 
-  const trackInteraction = (type: string) => {
+  const trackInteraction = (_type: string) => {
     setMetrics(prev => ({
       ...prev,
       interactionsCount: prev.interactionsCount + 1,

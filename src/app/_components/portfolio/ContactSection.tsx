@@ -1,7 +1,6 @@
 "use client";
 
 import type { ContactInfo, SocialLink } from "../../../types/portfolio";
-import InteractiveButton from "../ui/InteractiveButton";
 import InteractiveCard from "../ui/InteractiveCard";
 import ScrollTrigger from "../interactions/ScrollTrigger";
 import ParallaxContainer from "../interactions/ParallaxContainer";
@@ -28,10 +27,10 @@ export default function ContactSection({ contact, socialLinks }: ContactSectionP
           <ParallaxContainer speed={0.3}>
             <div className="mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold section-title-gradient mb-6">
-                Let's Connect
+                Let&rsquo;s Connect
               </h2>
               <p className="text-lg text-[#cbd5e1] max-w-2xl mx-auto leading-relaxed">
-                Ready to collaborate on innovative projects? Let's discuss how we can work together 
+                Ready to collaborate on innovative projects? Let&rsquo;s discuss how we can work together 
                 to create exceptional digital experiences and scalable solutions.
               </p>
             </div>
@@ -107,7 +106,7 @@ export default function ContactSection({ contact, socialLinks }: ContactSectionP
                   Find me online
                 </h3>
                 <div className="flex justify-center gap-4">
-                  {socialLinks.map((social, index) => (
+                  {socialLinks.map((social) => (
                     <a
                       key={social.platform}
                       href={social.url}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useCallback } from "react";
-import type { GestureState, GestureEvent, TouchPoint } from "../../../types/interactions";
+import type { GestureState, TouchPoint } from "../../../types/interactions";
 
 interface GestureHandlerProps {
   onSwipe?: (direction: 'left' | 'right' | 'up' | 'down', velocity: number) => void;
@@ -161,7 +161,7 @@ export default function GestureHandler({
     }
   }, [disabled, getTouchPoint, calculateDistance, calculateCenter, onPinch, onPan, pinchThreshold, panThreshold]);
 
-  const handleTouchEnd = useCallback((e: TouchEvent) => {
+  const handleTouchEnd = useCallback((_e: TouchEvent) => {
     if (disabled || !gestureStateRef.current.isActive) return;
 
     const currentState = gestureStateRef.current;

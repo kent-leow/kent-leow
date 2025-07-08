@@ -91,7 +91,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                           {category.skills.length} technologies
                         </span>
                         <div className="flex items-center gap-1">
-                          {[...Array(Math.min(5, Math.ceil(category.skills.length / 2)))].map((_, i) => (
+                          {Array.from({ length: Math.min(5, Math.ceil(category.skills.length / 2)) }, (_, i) => (
                             <div 
                               key={i}
                               className="w-1.5 h-1.5 rounded-full bg-[#7c3aed] opacity-60 group-hover:opacity-100 transition-opacity duration-300"

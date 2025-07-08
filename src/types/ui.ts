@@ -12,7 +12,7 @@ export interface AnimationConfig {
 
 export interface TechPattern {
   type: 'grid' | 'circuit' | 'terminal' | 'code';
-  config: Record<string, any>;
+  config: Record<string, unknown>;
   animated: boolean;
 }
 

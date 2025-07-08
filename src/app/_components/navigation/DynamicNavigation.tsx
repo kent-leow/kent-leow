@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import type { NavigationConfig, NavigationSection } from "../../../types/navigation";
+import type { NavigationConfig } from "../../../types/navigation";
 import useSectionNavigation from "../../../hooks/useSectionNavigation";
 import Tooltip from "../ui/Tooltip";
 
@@ -14,7 +14,7 @@ export default function DynamicNavigation({ config, className = '' }: DynamicNav
   const sectionIds = config.sections.map(section => section.id);
   const { navigationState, navigateToSection } = useSectionNavigation(sectionIds);
 
-  const { sections, smooth, highlightActive, showProgress } = config;
+  const { sections, smooth, showProgress } = config;
   const { currentSection, scrollProgress } = navigationState;
 
   return (
@@ -60,7 +60,7 @@ export default function DynamicNavigation({ config, className = '' }: DynamicNav
 
       {/* Navigation Dots */}
       <nav className="flex flex-col items-center space-y-4" role="navigation" aria-label="Section navigation">
-        {sections.map((section, index) => {
+        {sections.map((section) => {
           const isActive = currentSection === section.id;
           
           return (
@@ -148,7 +148,7 @@ export default function DynamicNavigation({ config, className = '' }: DynamicNav
             onClick={() => {
               const currentIndex = sectionIds.indexOf(currentSection);
               const prevIndex = currentIndex === 0 ? sectionIds.length - 1 : currentIndex - 1;
-              navigateToSection(sectionIds[prevIndex] || '', smooth);
+              navigateToSection(sectionIds[prevIndex] ?? '', smooth);
             }}
             className="flex items-center justify-center w-8 h-8 bg-bg-elevated/60 hover:bg-bg-elevated/80 text-text-tertiary hover:text-white rounded-full backdrop-blur-sm transition-all duration-200 shadow-lg border border-border-muted/30 hover:border-primary-500/50 hover:shadow-primary-500/20"
             aria-label="Previous section"
@@ -171,7 +171,7 @@ export default function DynamicNavigation({ config, className = '' }: DynamicNav
             onClick={() => {
               const currentIndex = sectionIds.indexOf(currentSection);
               const nextIndex = (currentIndex + 1) % sectionIds.length;
-              navigateToSection(sectionIds[nextIndex] || '', smooth);
+              navigateToSection(sectionIds[nextIndex] ?? '', smooth);
             }}
             className="flex items-center justify-center w-8 h-8 bg-bg-elevated/60 hover:bg-bg-elevated/80 text-text-tertiary hover:text-white rounded-full backdrop-blur-sm transition-all duration-200 shadow-lg border border-border-muted/30 hover:border-primary-500/50 hover:shadow-primary-500/20"
             aria-label="Next section"

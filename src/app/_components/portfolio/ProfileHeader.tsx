@@ -4,7 +4,6 @@ import { portfolioData } from "../../../data/portfolio-data";
 import InteractiveCard from "../ui/InteractiveCard";
 import TypingEffect from "../ui/TypingEffect";
 import GestureHandler from "../interactions/GestureHandler";
-import TouchOptimizedButton from "../ui/TouchOptimizedButton";
 
 export default function ProfileHeader() {
   return (

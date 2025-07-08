@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface ParticleSystemProps {
   particleCount?: number;
@@ -35,7 +35,7 @@ export default function ParticleSystem({
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   // Initialize particles
-  const initializeParticles = (width: number, height: number) => {
+  const initializeParticles = useCallback((width: number, height: number) => {
     const particles: Particle[] = [];
     
     for (let i = 0; i < particleCount; i++) {
@@ -50,10 +50,10 @@ export default function ParticleSystem({
     }
     
     particlesRef.current = particles;
-  };
+  }, [particleCount, particleSize, speed, opacity]);
 
   // Animation loop
-  const animate = () => {
+  const animate = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -117,7 +117,7 @@ export default function ParticleSystem({
     });
     
     animationFrameRef.current = requestAnimationFrame(animate);
-  };
+  }, [dimensions, interactive, color]);
 
   // Handle mouse movement
   const handleMouseMove = (event: MouseEvent) => {
@@ -132,9 +132,9 @@ export default function ParticleSystem({
   };
 
   // Handle resize
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const canvas = canvasRef.current;
-    if (!canvas || !canvas.parentElement) return;
+    if (!canvas?.parentElement) return;
     
     const parent = canvas.parentElement;
     const newWidth = parent.clientWidth;
@@ -145,7 +145,7 @@ export default function ParticleSystem({
     
     setDimensions({ width: newWidth, height: newHeight });
     initializeParticles(newWidth, newHeight);
-  };
+  }, [initializeParticles]);
 
   useEffect(() => {
     handleResize();
@@ -162,7 +162,7 @@ export default function ParticleSystem({
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, []);
+  }, [handleResize, interactive]);
 
   useEffect(() => {
     if (dimensions.width && dimensions.height) {
@@ -174,7 +174,7 @@ export default function ParticleSystem({
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [dimensions]);
+  }, [dimensions, animate]);
 
   return (
     <canvas

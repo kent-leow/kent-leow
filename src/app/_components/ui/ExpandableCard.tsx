@@ -13,7 +13,7 @@ export default function ExpandableCard({
 }: ExpandableCardProps) {
   const [internalExpanded, setInternalExpanded] = useState(false);
   
-  const isExpanded = controlledExpanded !== undefined ? controlledExpanded : internalExpanded;
+  const isExpanded = controlledExpanded ?? internalExpanded;
   
   const handleToggle = () => {
     const newState = !isExpanded;

@@ -17,9 +17,7 @@ export interface ResponsiveConfig {
     xl: number;
     '2xl': number;
   };
-  components: {
-    [key: string]: ResponsiveComponentConfig;
-  };
+  components: Record<string, ResponsiveComponentConfig>;
 }
 
 export interface ResponsiveComponentConfig {

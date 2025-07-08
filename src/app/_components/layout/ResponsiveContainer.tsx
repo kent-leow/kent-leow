@@ -64,12 +64,12 @@ export default function ResponsiveContainer({
   // Build responsive classes
   const layoutClasses: Record<string, string> = {
     stack: 'flex flex-col',
-    grid: `grid grid-cols-${currentConfig.columns || 1}`,
+    grid: `grid grid-cols-${currentConfig.columns ?? 1}`,
     flex: 'flex flex-wrap'
   };
 
   const responsiveClasses = [
-    layoutClasses[currentConfig.layout] || layoutClasses.stack,
+    layoutClasses[currentConfig.layout] ?? layoutClasses.stack,
     currentConfig.spacing,
     currentConfig.fontSize,
     currentConfig.padding,

@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import type { StorytellingConfig, StorySection } from "../../../types/storytelling";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import type { StorytellingConfig } from "../../../types/storytelling";
 import ScrollTrigger from "../interactions/ScrollTrigger";
 import ParallaxContainer from "../interactions/ParallaxContainer";
 
@@ -25,6 +25,13 @@ export default function StorytellingExperience({
   const { sections, autoAdvance, pauseOnHover, showProgress } = config;
   const currentStory = sections[currentSection];
 
+  const nextSection = useCallback(() => {
+    const newIndex = (currentSection + 1) % sections.length;
+    setCurrentSection(newIndex);
+    setProgress(0);
+    onSectionChange?.(newIndex);
+  }, [currentSection, sections.length, onSectionChange]);
+
   useEffect(() => {
     if (autoAdvance && !isPaused && currentStory?.duration) {
       const duration = currentStory.duration * 1000; // Convert to milliseconds
@@ -46,14 +53,7 @@ export default function StorytellingExperience({
         clearInterval(intervalRef.current);
       }
     };
-  }, [currentSection, isPaused, autoAdvance, currentStory?.duration]);
-
-  const nextSection = () => {
-    const newIndex = (currentSection + 1) % sections.length;
-    setCurrentSection(newIndex);
-    setProgress(0);
-    onSectionChange?.(newIndex);
-  };
+  }, [currentSection, isPaused, autoAdvance, currentStory?.duration, nextSection]);
 
   const prevSection = () => {
     const newIndex = currentSection === 0 ? sections.length - 1 : currentSection - 1;
@@ -77,7 +77,7 @@ export default function StorytellingExperience({
   const handleMouseLeave = () => {
     if (pauseOnHover) {
       setIsPaused(false);
-      startTimeRef.current = Date.now() - (progress / 100 * (currentStory?.duration || 5) * 1000);
+      startTimeRef.current = Date.now() - (progress / 100 * (currentStory?.duration ?? 5) * 1000);
     }
   };
 
@@ -181,7 +181,7 @@ export default function StorytellingExperience({
             {index === currentSection && (
               <ScrollTrigger
                 trigger="whileInView"
-                animation={section.animation === 'parallax' ? 'custom' : (section.animation || 'fade')}
+                animation={section.animation === 'parallax' ? 'custom' : (section.animation ?? 'fade')}
                 threshold={0.1}
               >
                 <ParallaxContainer speed={0.2}>
