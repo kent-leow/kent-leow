@@ -244,6 +244,50 @@ button:focus-visible,
   outline-offset: 2px;
 }
 
+/* Skills section animations */
+@keyframes skillCardFloat {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes skillItemSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes techBadgePulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.skill-card-float {
+  animation: skillCardFloat 6s ease-in-out infinite;
+}
+
+.skill-item-slide {
+  animation: skillItemSlide 0.5s ease-out forwards;
+}
+
+.tech-badge-pulse {
+  animation: techBadgePulse 2s ease-in-out infinite;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,

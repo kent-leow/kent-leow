@@ -58,28 +58,30 @@ export default function InteractiveCard({
   const getVariantClasses = () => {
     switch (variant) {
       case 'elevated':
-        return 'bg-[#16213e] border-[#4d4d4d] shadow-lg';
+        return 'bg-[#16213e]/80 border-[#4d4d4d]/50 shadow-lg backdrop-blur-sm';
       case 'tech':
-        return 'bg-[#1a2e3e] border-[#00f5ff] shadow-lg shadow-[#00f5ff]/20';
+        return 'bg-[#1a2e3e]/60 border-[#374151]/30 shadow-lg shadow-[#7c3aed]/10 backdrop-blur-sm';
       default:
-        return 'bg-[#16213e] border-[#4d4d4d]';
+        return 'bg-[#16213e]/80 border-[#4d4d4d]/50 backdrop-blur-sm';
     }
   };
 
   const getInteractiveClasses = () => {
     if (!interactive) return '';
     
-    let classes = 'transition-all duration-300 ease-out cursor-pointer';
+    let classes = 'transition-all duration-500 ease-out cursor-pointer';
     
     if (interactionState.isHovered) {
-      classes += ' transform scale-[1.02] border-[#e94560] shadow-xl';
+      classes += ' transform scale-[1.03] border-[#7c3aed]/50 shadow-2xl';
       if (variant === 'tech') {
-        classes += ' shadow-[#00f5ff]/40';
+        classes += ' shadow-[#7c3aed]/30';
+      } else if (variant === 'elevated') {
+        classes += ' shadow-[#7c3aed]/20';
       }
     }
     
     if (interactionState.isFocused) {
-      classes += ' ring-2 ring-[#e94560] ring-opacity-50';
+      classes += ' ring-2 ring-[#7c3aed] ring-opacity-50';
     }
     
     if (interactionState.isActive) {
@@ -108,12 +110,12 @@ export default function InteractiveCard({
     >
       {/* Tech Grid Overlay for tech variant */}
       {variant === 'tech' && (
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-5">
           <div className="grid grid-cols-8 h-full">
             {Array.from({ length: 32 }).map((_, i) => (
               <div 
                 key={i} 
-                className="border-r border-b border-[#00f5ff] animate-pulse"
+                className="border-r border-b border-[#7c3aed] animate-pulse"
                 style={{ animationDelay: `${i * 0.1}s` }}
               />
             ))}
@@ -128,7 +130,7 @@ export default function InteractiveCard({
       
       {/* Interactive glow effect */}
       {interactive && interactionState.isHovered && (
-        <div className="absolute inset-0 bg-gradient-to-r from-[#e94560]/10 to-[#ff6b9d]/10 rounded-lg pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#7c3aed]/5 via-transparent to-[#06b6d4]/5 rounded-lg pointer-events-none transition-opacity duration-500" />
       )}
     </div>
   );
