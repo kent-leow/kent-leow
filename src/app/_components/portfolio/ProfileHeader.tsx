@@ -43,8 +43,8 @@ export default function ProfileHeader() {
               <div className="text-base md:text-lg lg:text-xl text-text-primary leading-relaxed px-2 md:px-4">
                 <TypingEffect
                   text={portfolioData.personal.summary}
-                  speed={30}
-                  delay={1200}
+                  speed={5}
+                  delay={800}
                   cursor={true}
                   cursorChar="▋"
                   className="text-inherit leading-inherit"
