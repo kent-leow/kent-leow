@@ -50,7 +50,7 @@ export const portfolioData = {
       location: "Singapore",
       startDate: "July 2024",
       endDate: "Present",
-      description: "Leading full-stack development on AWS cloud infrastructure with Angular/ReactJS frontend and Spring Boot backend.",
+      description: "Contributing full-stack development on AWS cloud infrastructure with Angular/ReactJS frontend and Spring Boot backend.",
       achievements: [
         "Leveraged AI tools to automate tasks and optimize workflows",
         "Modernized legacy codebase: upgraded Spring Boot 2 to 3, Angular 9 to 19",
