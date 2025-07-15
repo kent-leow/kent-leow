@@ -8,7 +8,7 @@
   
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/kent-leow)
   [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kent-leow)
-  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://kent-leow.top)
+  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://me.kent-leow.top)
   [![Tetris Game](https://img.shields.io/badge/Tetris_Game-00C851?style=for-the-badge&logo=gamepad&logoColor=white)](https://tetris.kent-leow.top)
   
 </div>
