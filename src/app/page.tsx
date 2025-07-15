@@ -1,6 +1,7 @@
 import ProfileHeader from "./_components/portfolio/ProfileHeader";
 import SkillsSection from "./_components/portfolio/SkillsSection";
 import ExperienceSection from "./_components/portfolio/ExperienceSection";
+import PersonalProjectsSection from "./_components/portfolio/PersonalProjectsSection";
 import ContactSection from "./_components/portfolio/ContactSection";
 import ResponsiveContainer from "./_components/layout/ResponsiveContainer";
 import DynamicNavigation from "./_components/navigation/DynamicNavigation";
@@ -43,6 +44,17 @@ export default function Home() {
         color: '#10b981'
       },
       { 
+        id: 'projects', 
+        title: 'Projects', 
+        description: 'Personal creations',
+        icon: (
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        ),
+        color: '#f59e0b'
+      },
+      { 
         id: 'contact', 
         title: 'Contact', 
         description: 'Get in touch',
@@ -51,7 +63,7 @@ export default function Home() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
         ),
-        color: '#f59e0b'
+        color: '#ef4444'
       }
     ],
     smooth: true,
@@ -99,6 +111,10 @@ export default function Home() {
         
         <section id="experience" className="min-h-screen relative">
           <ExperienceSection experiences={portfolioData.experience} />
+        </section>
+        
+        <section id="projects" className="min-h-screen relative">
+          <PersonalProjectsSection projects={portfolioData.personalProjects} />
         </section>
         
         <section id="contact" className="min-h-screen relative">

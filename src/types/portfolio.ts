@@ -51,3 +51,13 @@ export interface Course {
   startDate: string;
   endDate: string;
 }
+
+export interface PersonalProject {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  preview: string;
+  technologies: string[];
+  features: string[];
+}

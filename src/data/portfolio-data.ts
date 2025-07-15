@@ -1,4 +1,4 @@
-import type { ContactInfo, SkillCategory, WorkExperience, Project, SocialLink, Education, Course } from "../types/portfolio";
+import type { ContactInfo, SkillCategory, WorkExperience, Project, SocialLink, Education, Course, PersonalProject } from "../types/portfolio";
 
 export const portfolioData = {
   personal: {
@@ -292,6 +292,24 @@ export const portfolioData = {
       endDate: "December 2027"
     }
   ] as Course[],
+
+  personalProjects: [
+    {
+      id: "tetris-game",
+      title: "Tetris Game",
+      description: "A modern implementation of the classic Tetris game featuring both single and multiplayer modes with competitive leaderboards. Built with smooth animations, responsive controls, and real-time gameplay synchronization for an engaging gaming experience.",
+      url: "https://tetris.kent-leow.top/",
+      preview: "/tetris-preview.png",
+      technologies: ["GitHub Copilot", "TypeScript", "NextJS", "Vercel"],
+      features: [
+        "Single player mode with progressive difficulty",
+        "Multiplayer mode with real-time synchronization",
+        "Global leaderboard system",
+        "Smooth animations and particle effects",
+        "Custom game controls and settings"
+      ]
+    }
+  ] as PersonalProject[],
 
   socialLinks: [
     {
